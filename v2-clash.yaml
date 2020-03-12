@@ -4,10 +4,10 @@ redir-port: 7892
 allow-lan: true
 bind-address: "*"
 mode: Rule
-log-level: info
+log-level: silent
 external-controller: 0.0.0.0:9090
 secret: "123456"
-external-ui: "/usr/share/clash/dashboard"
+external-ui: "/usr/share/openclash/dashboard"
 
 experimental:
   ignore-resolve-fail: true
@@ -20,68 +20,87 @@ experimental:
 # '*.clash.dev': 127.0.0.1
 # 'alpha.clash.dev': '::1'
 
+hosts:
+##Custom HOSTS##
+#  experimental hosts, support wildcard (e.g. *.clash.dev Even *.foo.*.example.com)
+#  static domain has a higher priority than wildcard domain (foo.example.com > *.example.com)
+#  NOTE: hosts don't work with `fake-ip`
+
+#  '*.clash.dev': 127.0.0.1
+#  'alpha.clash.dev': '::1'
+##Custom HOSTS END##
 dns:
- enable: true
- listen: 0.0.0.0:5300
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:5300
  # # default-nameserver:
  # #   - 114.114.114.114
  # #   - 8.8.8.8
- enhanced-mode: fake-ip
- fake-ip-range: 198.18.0.1/16
+  enhanced-mode: redir-host
  #fake-ip-filter:
  # - '*.lan'
  # - localhost.ptlogin2.qq.com
- nameserver:  
+  nameserver:
   - udp://114.114.114.114    
   - tls://118.89.110.78:853
   - tls://47.96.179.163:853
   - udp://8.8.8.8:53
   - udp://8.8.4.4:53
   - tcp://1.1.1.1
- fallback:
+  fallback:
   - tls://118.89.110.78:853
   - tls://47.96.179.163:853
   - tcp://1.1.1.1
   - tcp://8.8.8.8
- fallback-filter:
-  geoip: true
-  ipcidr:
-    - 240.0.0.0/4 
+  fallback-filter:
+    geoip: true
+    ipcidr:
+      - 240.0.0.0/4 
    
+#===================== OpenClash-General-Settings =====================#
 Proxy:
-- { name: "gg-us1.baixike.cn", type: vmess, server: gg-us1.baixike.cn, port: 443, uuid: 89dceb18-5eb9-11ea-9ae4-42010a800004, alterId: 299, cipher: auto, network: ws, ws-path: /D05v8jmf/, tls: true }
 - { name: "gg-hk1.baixike.cn", type: vmess, server: gg-hk1.baixike.cn, port: 443, uuid: c0089338-4e04-11ea-aa7d-42010aaa0002, alterId: 225, cipher: auto, network: ws, ws-path: /Re7J9UIk/, tls: true }
 - { name: "gg-us.baixike.cn", type: vmess, server: gg-us.baixike.cn, port: 443, uuid: 7a25032c-4e06-11ea-a8f4-42010a8a0002, alterId: 256, cipher: auto, network: ws, ws-path: /ixpAe53m/, tls: true }
 - { name: "sgp.51csl.cn", type: vmess, server: sgp.51csl.cn, port: 443, uuid: ee4b6dfc-f3b8-11e9-82b6-00163e005846, alterId: 228, cipher: auto, network: ws, ws-path: /cSpwT5iV/, tls: true }
 - { name: "sgp1.51csl.cn", type: vmess, server: sgp1.51csl.cn, port: 443, uuid: 9917ddaa-ec99-11e9-bf83-00163e02bf9d, alterId: 288, cipher: auto, network: ws, ws-path: /uwDBPa7r/, tls: true }
-  
 Proxy Group:
 - name: ❌AdBlock
   type: select
   proxies:
-    - REJECT
+  - REJECT
 - name: 🖥️AsianTV
   type: select
   proxies:
-    - DIRECT
-    - "🔑Proxy"
+  - DIRECT
+  - 🔑Proxy
 - name: 📺GlobalTV
   type: select
   proxies:
-    - "gg-us1.baixike.cn"
-    - "gg-hk1.baixike.cn"
-    - "gg-us.baixike.cn"
-    - "sgp.51csl.cn"
-    - "sgp1.51csl.cn"
+  - "gg-hk1.baixike.cn"
+  - "gg-us.baixike.cn"
+  - "sgp.51csl.cn"
+  - "sgp1.51csl.cn"
 - name: 🔑Proxy
   type: select
   proxies:
-    - "gg-us1.baixike.cn"
-    - "gg-hk1.baixike.cn"
-    - "gg-us.baixike.cn"
-    - "sgp.51csl.cn"
-    - "sgp1.51csl.cn"
-     
+  - "gg-hk1.baixike.cn"
+  - "gg-us.baixike.cn"
+  - "sgp.51csl.cn"
+  - "sgp1.51csl.cn"
+- name: Netflix
+  type: select
+  proxies:
+  - "gg-hk1.baixike.cn"
+  - "gg-us.baixike.cn"
+  - "sgp.51csl.cn"
+  - "sgp1.51csl.cn"
+- name: Youtube
+  type: select
+  proxies:
+  - "gg-hk1.baixike.cn"
+  - "gg-us.baixike.cn"
+  - "sgp.51csl.cn"
+  - "sgp1.51csl.cn"
 Rule:
 # (GlobalTV)
 # > ABC
@@ -165,13 +184,13 @@ Rule:
 - DOMAIN-SUFFIX,tvb.com,📺GlobalTV
 
 # > Netflix
-- DOMAIN-SUFFIX,netflix.com,📺GlobalTV
-- DOMAIN-SUFFIX,netflix.net,📺GlobalTV
-- DOMAIN-SUFFIX,nflxext.com,📺GlobalTV
-- DOMAIN-SUFFIX,nflximg.com,📺GlobalTV
-- DOMAIN-SUFFIX,nflximg.net,📺GlobalTV
-- DOMAIN-SUFFIX,nflxso.net,📺GlobalTV
-- DOMAIN-SUFFIX,nflxvideo.net,📺GlobalTV
+- DOMAIN-SUFFIX,netflix.com,Netflix
+- DOMAIN-SUFFIX,netflix.net,Netflix
+- DOMAIN-SUFFIX,nflxext.com,Netflix
+- DOMAIN-SUFFIX,nflximg.com,Netflix
+- DOMAIN-SUFFIX,nflximg.net,Netflix
+- DOMAIN-SUFFIX,nflxso.net,Netflix
+- DOMAIN-SUFFIX,nflxvideo.net,Netflix
 
 # > Pandora
 - DOMAIN-SUFFIX,pandora.com,📺GlobalTV
@@ -189,10 +208,10 @@ Rule:
 - DOMAIN-SUFFIX,viu.tv,📺GlobalTV
 
 # > Youtube
-- DOMAIN-KEYWORD,youtube,📺GlobalTV
-- DOMAIN-SUFFIX,googlevideo.com,📺GlobalTV
-- DOMAIN-SUFFIX,gvt2.com,📺GlobalTV
-- DOMAIN-SUFFIX,youtu.be,📺GlobalTV
+- DOMAIN-KEYWORD,youtube,Youtube
+- DOMAIN-SUFFIX,googlevideo.com,Youtube
+- DOMAIN-SUFFIX,gvt2.com,Youtube
+- DOMAIN-SUFFIX,youtu.be,Youtube
 
 # (🖥️AsianTV)
 # > Bilibili
@@ -1614,4 +1633,3 @@ Rule:
 - GEOIP,CN,DIRECT
 
 - MATCH,🔑Proxy
-
