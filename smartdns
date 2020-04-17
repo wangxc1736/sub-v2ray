@@ -1,0 +1,282 @@
+
+config smartdns
+	option port '6053'
+	option tcp_server '1'
+	option ipv6_server '1'
+	option dualstack_ip_selection '0'
+	option prefetch_domain '0'
+	option redirect 'none'
+	option rr_ttl_min '300'
+	option seconddns_tcp_server '1'
+	option seconddns_no_rule_addr '0'
+	option seconddns_no_rule_nameserver '0'
+	option seconddns_no_rule_ipset '0'
+	option seconddns_no_rule_soa '0'
+	option coredump '0'
+	option cache_size '4096'
+	option enabled '1'
+	option server_name 'smartdns'
+	option seconddns_enabled '1'
+	option seconddns_port '5335'
+	option seconddns_no_speed_check '1'
+	option seconddns_server_group 'dns2'
+	option seconddns_no_dualstack_selection '1'
+	option seconddns_no_cache '1'
+	list old_redirect 'none'
+	list old_port '6053'
+	list old_enabled '1'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '114'
+	option ip '114.114.114.114'
+	option port '53'
+
+config server
+	option name '114'
+	option ip '114.114.114.114'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option type 'udp'
+	option name 'g'
+	option ip '8.8.8.8'
+	option port '53'
+	option enabled '0'
+
+config server
+	option name 'g'
+	option ip '8.8.8.8'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'al'
+	option ip '223.5.5.5'
+	option port '53'
+
+config server
+	option name 'al'
+	option ip '233.5.5.5'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option type 'udp'
+	option name 'cf'
+	option ip '1.1.1.1'
+	option port '53'
+	option enabled '1'
+
+config server
+	option name 'cf'
+	option ip '1.1.1.1'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option type 'udp'
+	option name 'g1'
+	option ip '8.8.4.4'
+	option port '53'
+	option enabled '0'
+
+config server
+	option name 'g1'
+	option ip '8.8.4.4'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'al1'
+	option ip '223.6.6.6'
+	option port '53'
+
+config server
+	option name 'al1'
+	option ip '223.6.6.6'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'dnspod'
+	option ip '119.29.29.29'
+	option port '53'
+
+config server
+	option name 'dnspod'
+	option ip '119.29.29.29'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'bj'
+	option ip '202.106.0.20'
+	option port '53'
+
+config server
+	option name 'bj'
+	option ip '202.106.0.20'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '电信/移动/铁通'
+	option ip '101.226.4.6'
+	option port '53'
+
+config server
+	option name '电信/移动/铁通'
+	option ip '101.226.4.6'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option type 'udp'
+	option name 'Norton ConnectSafe'
+	option ip '199.85.126.10'
+	option port '53'
+	option enabled '0'
+
+config server
+	option name 'Norton ConnectSafe'
+	option ip '199.85.126.10'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'OpenDNS'
+	option ip '208.67.220.220'
+	option port '53'
+
+config server
+	option name 'OpenDNS'
+	option ip '208.67.220.220'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option type 'udp'
+	option name 'DNS Watch'
+	option ip '84.200.70.40'
+	option port '53'
+	option enabled '0'
+
+config server
+	option name 'DNS Watch'
+	option ip '84.200.69.80'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option type 'udp'
+	option name 'Comodo'
+	option ip '8.26.56.26'
+	option port '53'
+	option enabled '0'
+
+config server
+	option name 'Comodo'
+	option ip '8.26.56.26'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option type 'udp'
+	option name '威瑞信'
+	option ip '64.6.64.6'
+	option port '53'
+	option enabled '0'
+
+config server
+	option name '威瑞信'
+	option ip '64.6.64.6'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option type 'udp'
+	option name 'OpenNIC'
+	option ip '192.95.54.3'
+	option port '53'
+	option enabled '0'
+
+config server
+	option name 'OpenNIC'
+	option ip '192.95.54.3'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option type 'udp'
+	option name 'GreenTeamDNS'
+	option ip '81.218.119.11'
+	option port '53'
+	option enabled '0'
+
+config server
+	option name 'GreenTeamDNS'
+	option ip '81.218.119.11'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '百度'
+	option ip '180.76.76.76'
+	option port '53'
+
+config server
+	option name '百度'
+	option ip '180.76.76.76'
+	option port '53'
+	option type 'tcp'
+	option enabled '0'
+
+config server
+	option enabled '1'
+	option name 'gg'
+	option ip 'dns.google'
+	option port '853'
+	option type 'tls'
+	option server_group 'dns2'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '1.2.4.8'
+	option ip '1.2.4.8'
+	option port '53'
+
