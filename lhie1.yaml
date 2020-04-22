@@ -40,7 +40,7 @@ Proxy:
 - { name: "gg-us1.baixike.cn", type: vmess, server: gg-us1.baixike.cn, port: 443, uuid: a7259d1c-82d8-11ea-957f-42010a8a0003, alterId: 212, cipher: auto, network: ws, ws-path: /o9ylp26E/, tls: true }
 - { name: "gg-hk2.baixike.cn", type: vmess, server: gg-hk2.baixike.cn, port: 443, uuid: 41fb44ee-7966-11ea-b1b7-42010aaa0008, alterId: 216, cipher: auto, network: ws, ws-path: /micS1CEW/, tls: true }
 - { name: "ahk.baixike.cn", type: vmess, server: ahk.baixike.cn, port: 443, uuid: b485c042-7e30-11ea-bc27-00163e087fcc, alterId: 211, cipher: auto, network: ws, ws-path: /0Mcuw82m/, tls: true }
-- name: "snell"
+- name: "5ahk-snell"
   type: snell
   server: ahk.51csl.cn
   port: 8443
@@ -48,6 +48,14 @@ Proxy:
   obfs-opts:
     mode: tls
     host: ahk.51csl.cn
+- name: "test-snell"
+  type: snell
+  server: 34.82.87.122
+  port: 8443
+  psk: B2QRHMEUbj8rWXme
+  obfs-opts:
+    mode: tls
+    host: gg-us1.baixike.cn
 
 # http
 # - name: "http"
@@ -143,7 +151,8 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
-  - "snell"
+  - "5ahk-snell"
+  - "test-snell"
 - name: GlobalTV
   type: select
   proxies:
@@ -155,6 +164,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 - name: Microsoft
   type: select
   proxies:
@@ -168,6 +178,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 - name: Netflix
   type: select
   proxies:
@@ -179,6 +190,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 - name: Spotify
   type: select
   proxies:
@@ -190,6 +202,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 - name: Telegram
   type: select
   proxies:
@@ -201,6 +214,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 - name: Speedtest
   type: select
   proxies:
@@ -214,6 +228,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 - name: PayPal
   type: select
   proxies:
@@ -227,6 +242,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 - name: Netease Music
   type: select
   proxies:
@@ -240,6 +256,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 - name: Domestic
   type: select
   proxies:
@@ -253,6 +270,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 - name: Apple
   type: select
   proxies:
@@ -266,6 +284,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 - name: Steam
   type: select
   proxies:
@@ -279,6 +298,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 - name: Others
   type: select
   proxies:
@@ -292,6 +312,7 @@ Proxy Group:
   - "gg-us1.baixike.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "5ahk-snell"
 
 Rule:
 # Ads in Video apps
