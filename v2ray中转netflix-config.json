@@ -1,0 +1,170 @@
+{
+  "routing": {
+    "rules": [
+      {
+        "ip": [
+          "0.0.0.0/8",
+          "10.0.0.0/8",
+          "100.64.0.0/10",
+          "169.254.0.0/16",
+          "172.16.0.0/12",
+          "192.0.0.0/24",
+          "192.0.2.0/24",
+          "192.168.0.0/16",
+          "198.18.0.0/15",
+          "198.51.100.0/24",
+          "203.0.113.0/24",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
+        ],
+        "outboundTag": "blocked",
+        "type": "field"
+      },
+      {
+        "type": "field",
+        "outboundTag": "34.97.201.146",
+        "domain": [
+          "netflix",
+          "nflximg",
+          "nflxvideo",
+          "nflxso",
+          "nflxext"
+        ]
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "domain": "ahk.baixike.cn",
+      "port": 443,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "b485c042-7e30-11ea-bc27-00163e087fcc",
+            "alterId": 211
+          }
+        ]
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
+      "streamSettings": {
+        "kcpSettings": {},
+        "wsSettings": {
+          "headers": {
+            "Host": ""
+          },
+          "path": "/0Mcuw82m/"
+        },
+        "security": "tls",
+        "quicSettings": {},
+        "httpSettings": {},
+        "network": "ws",
+        "tcpSettings": {},
+        "tlsSettings": {
+          "certificates": [
+            {
+              "keyFile": "/root/.acme.sh/ahk.baixike.cn_ecc/ahk.baixike.cn.key",
+              "certificateFile": "/root/.acme.sh/ahk.baixike.cn_ecc/fullchain.cer"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "settings": {},
+      "protocol": "freedom"
+    },
+    {
+      "tag": "blocked",
+      "settings": {},
+      "protocol": "blackhole"
+    },
+    {
+      "sendThrough" : "0.0.0.0",
+      "mux" : {
+        "enabled" : false,
+        "concurrency" : 8
+      },
+      "protocol" : "vmess",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "34.97.201.146",
+            "users" : [
+              {
+                "id" : "06a2adfe-8548-11ea-b155-42010aae0002",
+                "alterId" : 16,
+                "security" : "auto",
+                "level" : 0
+              }
+            ],
+            "port" : 1641
+          }
+        ]
+      },
+      "tag" : "34.97.201.146",
+      "streamSettings" : {
+        "wsSettings" : {
+          "path" : "",
+          "headers" : {
+
+          }
+        },
+        "quicSettings" : {
+          "key" : "",
+          "security" : "none",
+          "header" : {
+            "type" : "none"
+          }
+        },
+        "tlsSettings" : {
+          "allowInsecure" : false,
+          "alpn" : [
+            "http\/1.1"
+          ],
+          "serverName" : "server.cc",
+          "allowInsecureCiphers" : false
+        },
+        "sockopt" : {
+
+        },
+        "httpSettings" : {
+          "path" : "",
+          "host" : [
+            ""
+          ]
+        },
+        "tcpSettings" : {
+          "header" : {
+            "type" : "none"
+          }
+        },
+        "kcpSettings" : {
+          "header" : {
+            "type" : "wechat-video"
+          },
+          "mtu" : 1350,
+          "congestion" : false,
+          "tti" : 20,
+          "uplinkCapacity" : 5,
+          "writeBufferSize" : 1,
+          "readBufferSize" : 1,
+          "downlinkCapacity" : 20
+        },
+        "security" : "none",
+        "network" : "kcp"
+      }
+    }
+  ],
+  "log": {
+    "error": "/var/log/v2ray/error.log",
+    "loglevel": "info",
+    "access": "/var/log/v2ray/access.log"
+  }
+}
