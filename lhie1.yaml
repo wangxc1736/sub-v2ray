@@ -38,6 +38,7 @@ Proxy:
 - { name: "ahk.51csl.cn", type: vmess, server: ahk.51csl.cn, port: 443, uuid: a90e3762-796c-11ea-ae59-00163e088e70, alterId: 208, cipher: auto, network: ws, ws-path: /mZ9L4zNT/, tls: true }
 - { name: "gg-hk2.baixike.cn", type: vmess, server: gg-hk2.baixike.cn, port: 443, uuid: 41fb44ee-7966-11ea-b1b7-42010aaa0008, alterId: 216, cipher: auto, network: ws, ws-path: /micS1CEW/, tls: true }
 - { name: "ahk.baixike.cn", type: vmess, server: ahk.baixike.cn, port: 443, uuid: b485c042-7e30-11ea-bc27-00163e087fcc, alterId: 211, cipher: auto, network: ws, ws-path: /0Mcuw82m/, tls: true }
+- { name: "gus.baixike.cn", type: vmess, server: gus.baixike.cn, port: 443, uuid: 64472654-85db-11ea-9f97-42010a8a0004, alterId: 233, cipher: auto, network: ws, ws-path: /8RQPtNeW/, tls: true }
 - name: "5ahk-snell"
   type: snell
   server: ahk.51csl.cn
@@ -46,6 +47,14 @@ Proxy:
   obfs-opts:
     mode: tls
     host: ahk.51csl.cn
+- name: "bahk-snell"
+  type: snell
+  server: ahk.baixike.cn
+  port: 8443
+  psk: RDQpRTkSP4OfgYsp
+  obfs-opts:
+    mode: tls
+    host: ahk.baixike.cn
 
 # http
 # - name: "http"
@@ -139,7 +148,9 @@ Proxy Group:
   - "ahk.51csl.cn"
   - "gg-hk2.baixike.cn"
   - "ahk.baixike.cn"
+  - "gus.baixike.cn"
   - "5ahk-snell"
+  - "bahk-snell"
 - name: GlobalTV
   type: select
   proxies:

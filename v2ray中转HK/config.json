@@ -1,4 +1,41 @@
 {
+  "inbounds": [
+    {
+      "streamSettings": {
+        "httpSettings": {},
+        "tlsSettings": {
+          "certificates": [
+            {
+              "keyFile": "/root/.acme.sh/ahk.51csl.cn_ecc/ahk.51csl.cn.key",
+              "certificateFile": "/root/.acme.sh/ahk.51csl.cn_ecc/fullchain.cer"
+            }
+          ]
+        },
+        "network": "ws",
+        "security": "tls",
+        "quicSettings": {},
+        "kcpSettings": {},
+        "tcpSettings": {},
+        "wsSettings": {
+          "headers": {
+            "Host": ""
+          },
+          "path": "/mZ9L4zNT/"
+        }
+      },
+      "protocol": "vmess",
+      "port": 443,
+      "settings": {
+        "clients": [
+          {
+            "id": "a90e3762-796c-11ea-ae59-00163e088e70",
+            "alterId": 208
+          }
+        ]
+      },
+      "domain": "ahk.51csl.cn"
+    }
+  ],
   "routing": {
     "rules": [
       {
@@ -18,12 +55,12 @@
           "fc00::/7",
           "fe80::/10"
         ],
-        "outboundTag": "blocked",
-        "type": "field"
+        "type": "field",
+        "outboundTag": "blocked"
       },
       {
         "type": "field",
-        "outboundTag": "gus.baixike.cn",
+        "outboundTag": "gg-hk2.baixike.cn",
         "domain": [
           "netflix",
           "nflximg",
@@ -34,47 +71,6 @@
       }
     ]
   },
-  "inbounds": [
-    {
-      "domain": "ahk.baixike.cn",
-      "port": 443,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "b485c042-7e30-11ea-bc27-00163e087fcc",
-            "alterId": 211
-          }
-        ]
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
-      },
-      "streamSettings": {
-        "kcpSettings": {},
-        "wsSettings": {
-          "headers": {
-            "Host": ""
-          },
-          "path": "/0Mcuw82m/"
-        },
-        "security": "tls",
-        "quicSettings": {},
-        "httpSettings": {},
-        "network": "ws",
-        "tcpSettings": {},
-        "tlsSettings": {
-          "certificates": [
-            {
-              "keyFile": "/root/.acme.sh/ahk.baixike.cn_ecc/ahk.baixike.cn.key",
-              "certificateFile": "/root/.acme.sh/ahk.baixike.cn_ecc/fullchain.cer"
-            }
-          ]
-        }
-      }
-    }
-  ],
   "outbounds": [
     {
       "settings": {},
@@ -82,8 +78,8 @@
     },
     {
       "tag": "blocked",
-      "settings": {},
-      "protocol": "blackhole"
+      "protocol": "blackhole",
+      "settings": {}
     },
     {
       "sendThrough" : "0.0.0.0",
@@ -95,11 +91,11 @@
       "settings" : {
         "vnext" : [
           {
-            "address" : "gus.baixike.cn",
+            "address" : "gg-hk2.baixike.cn",
             "users" : [
               {
-                "id" : "64472654-85db-11ea-9f97-42010a8a0004",
-                "alterId" : 233,
+                "id" : "41fb44ee-7966-11ea-b1b7-42010aaa0008",
+                "alterId" : 216,
                 "security" : "auto",
                 "level" : 0
               }
@@ -108,10 +104,10 @@
           }
         ]
       },
-      "tag" : "gus.baixike.cn",
+      "tag" : "gg-hk2.baixike.cn",
       "streamSettings" : {
         "wsSettings" : {
-          "path" : "\/8RQPtNeW\/",
+          "path" : "\/micS1CEW\/",
           "headers" : {
             "Host" : ""
           }
@@ -128,7 +124,7 @@
           "alpn" : [
             "http\/1.1"
           ],
-          "serverName" : "gus.baixike.cn",
+          "serverName" : "gg-hk2.baixike.cn",
           "allowInsecureCiphers" : false
         },
         "sockopt" : {
@@ -163,8 +159,8 @@
     }
   ],
   "log": {
-    "error": "/var/log/v2ray/error.log",
     "loglevel": "info",
+    "error": "/var/log/v2ray/error.log",
     "access": "/var/log/v2ray/access.log"
   }
 }
